@@ -15,16 +15,23 @@ import { WhiteChip } from "../chip/Chip";
 
 type Props = {
   searchProducts: (x: string) => void;
+  searchByCategory: (x: string) => void;
 };
 
-const SearchTabs: React.FC<Props> = ({ searchProducts }) => {
+const SearchTabs: React.FC<Props> = ({ searchProducts, searchByCategory }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchCat, setSearchCat] = useState<string>("");
 
   const handleOnChangeInput = (e: React.SyntheticEvent) => {
     const elem = e.target as HTMLInputElement;
     const value = elem.value;
     setSearchTerm(value);
     searchProducts(value);
+  };
+
+  const handleOnClickCategory = (cat: string) => {
+    setSearchCat(cat);
+    searchByCategory(cat);
   };
 
   return (
@@ -40,11 +47,41 @@ const SearchTabs: React.FC<Props> = ({ searchProducts }) => {
                   </CardHeader>
                   <CardBody>
                     <div className="d-flex justify-content-start">
-                      <WhiteChip>Software Development</WhiteChip>
-                      <WhiteChip>Daily Business</WhiteChip>
-                      <WhiteChip>Graphic Editors</WhiteChip>
-                      <WhiteChip>Text Editors</WhiteChip>
-                      <WhiteChip>Management Tools</WhiteChip>
+                      <WhiteChip
+                        handleOnClick={() =>
+                          handleOnClickCategory("Software Development")
+                        }
+                      >
+                        Software Development
+                      </WhiteChip>
+                      <WhiteChip
+                        handleOnClick={() =>
+                          handleOnClickCategory("Daily Business")
+                        }
+                      >
+                        Daily Business
+                      </WhiteChip>
+                      <WhiteChip
+                        handleOnClick={() =>
+                          handleOnClickCategory("Graphic Editors")
+                        }
+                      >
+                        Graphic Editors
+                      </WhiteChip>
+                      <WhiteChip
+                        handleOnClick={() =>
+                          handleOnClickCategory("Text Editors")
+                        }
+                      >
+                        Text Editors
+                      </WhiteChip>
+                      <WhiteChip
+                        handleOnClick={() =>
+                          handleOnClickCategory("Management Tools")
+                        }
+                      >
+                        Management Tools
+                      </WhiteChip>
                     </div>
 
                     <div className="mt-4">

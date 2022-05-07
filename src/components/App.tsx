@@ -29,6 +29,23 @@ function App() {
     setSearchedProducts(items);
   };
 
+  const searchByCategory = (cat: string) => {
+    console.log("searching by cat", cat);
+    if (!cat) {
+      setSearchedProducts(null);
+      return;
+    }
+
+    const items = productsData.filter((item) => item.category === cat);
+
+    if (!items.length) {
+      setSearchedProducts(null);
+      return;
+    }
+
+    setSearchedProducts(items);
+  };
+
   const handleOnClickSearchItem = (item: any) => {
     setSelected(item);
     setToggleProductDetails(true);
@@ -55,7 +72,10 @@ function App() {
       <Row>
         <Col md={8}>
           <Row>
-            <SearchTabs searchProducts={searchProducts} />
+            <SearchTabs
+              searchProducts={searchProducts}
+              searchByCategory={searchByCategory}
+            />
           </Row>
 
           {searchedProducts && (

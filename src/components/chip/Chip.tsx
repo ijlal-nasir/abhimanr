@@ -4,6 +4,7 @@ import { Badge } from "reactstrap";
 type Props = {
   children: React.ReactNode;
   classes?: string;
+  handleOnClick?: () => void;
 };
 
 const BlueChip: React.FC<Props> = ({ children, classes }) => {
@@ -21,9 +22,16 @@ const BlueChip: React.FC<Props> = ({ children, classes }) => {
   );
 };
 
-const WhiteChip: React.FC<Props> = ({ children }) => {
+const WhiteChip: React.FC<Props> = ({ children, handleOnClick }) => {
   return (
-    <Badge color="link" className="me-4 text-secondary fw-normal">
+    <Badge
+      color="link"
+      className="me-4 text-secondary fw-normal"
+      onClick={handleOnClick}
+      style={{
+        cursor: "pointer",
+      }}
+    >
       {children}
     </Badge>
   );
