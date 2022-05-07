@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import {
-  Nav,
-  NavItem,
-  NavLink,
   Col,
   TabContent,
   TabPane,
@@ -10,7 +7,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Badge,
   Input,
 } from "reactstrap";
 import { WhiteChip } from "../chip/Chip";

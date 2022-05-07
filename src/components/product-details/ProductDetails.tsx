@@ -4,21 +4,18 @@ import {
   CardBody,
   CardHeader,
   CardSubtitle,
-  Badge,
-  Button,
   FormGroup,
   Input,
   Label,
 } from "reactstrap";
+import { Product } from "../../types/Product.d";
 import { BlueChip } from "../chip/Chip";
 
 type Props = {
-  item: any;
+  item: Product;
 };
 
 const ProductDetails: React.FC<Props> = ({ item }) => {
-  console.log("item::details", item);
-
   return (
     <Card>
       <CardHeader className="bg-white">Product Details</CardHeader>

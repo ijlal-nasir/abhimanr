@@ -5,6 +5,7 @@ import ProductDetails from "./product-details/ProductDetails";
 import SearchResult from "./search-result/SearchResults";
 import SearchTabs from "./search-tabs/SearchTabs";
 import products from "../data/products.json";
+import { Product } from "../types/Product";
 
 function App() {
   const [productsData, setProductsData] = useState(products);
@@ -31,7 +32,6 @@ function App() {
   const handleOnClickSearchItem = (item: any) => {
     setSelected(item);
     setToggleProductDetails(true);
-    // console.log("item::details=>", item);
   };
 
   return (
@@ -60,7 +60,7 @@ function App() {
 
           {searchedProducts && (
             <Row className="mt-4 mb-5">
-              {searchedProducts.map((item: any, index: number) => (
+              {searchedProducts.map((item: Product, index: number) => (
                 <SearchResult
                   item={item}
                   key={index}
