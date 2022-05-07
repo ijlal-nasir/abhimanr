@@ -48,11 +48,9 @@ const SearchTabs: React.FC<Props> = ({ searchProducts, searchByCategory }) => {
                   <CardBody>
                     <div className="d-flex justify-content-start">
                       <WhiteChip
-                        handleOnClick={() =>
-                          handleOnClickCategory("Software Development")
-                        }
+                        handleOnClick={() => handleOnClickCategory("Developer")}
                       >
-                        Software Development
+                        Developer
                       </WhiteChip>
                       <WhiteChip
                         handleOnClick={() =>
@@ -63,10 +61,10 @@ const SearchTabs: React.FC<Props> = ({ searchProducts, searchByCategory }) => {
                       </WhiteChip>
                       <WhiteChip
                         handleOnClick={() =>
-                          handleOnClickCategory("Graphic Editors")
+                          handleOnClickCategory("Data Analytics")
                         }
                       >
-                        Graphic Editors
+                        Data Analytics
                       </WhiteChip>
                       <WhiteChip
                         handleOnClick={() =>

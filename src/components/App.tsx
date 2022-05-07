@@ -30,7 +30,6 @@ function App() {
   };
 
   const searchByCategory = (cat: string) => {
-    console.log("searching by cat", cat);
     if (!cat) {
       setSearchedProducts(null);
       return;
