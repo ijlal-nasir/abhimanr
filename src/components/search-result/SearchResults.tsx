@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Card, CardBody, CardSubtitle, Col } from "reactstrap";
+import { Card, CardBody, CardSubtitle, Col } from "reactstrap";
 import { BlueChip } from "../chip/Chip";
 
 type Props = {
@@ -7,8 +7,6 @@ type Props = {
 };
 
 const SearchResult: React.FC<Props> = ({ item }) => {
-  console.log("item", item);
-
   return (
     <Col md={12} className="my-1">
       <Card className="shadow-sm">
@@ -28,7 +26,7 @@ const SearchResult: React.FC<Props> = ({ item }) => {
                 fontSize: "12px",
               }}
             >
-              Daily Business
+              {item.category}
             </p>
           </div>
         </CardBody>

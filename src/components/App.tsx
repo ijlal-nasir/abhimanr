@@ -12,9 +12,6 @@ function App() {
   const [toggleProductDetails, setToggleProductDetails] =
     useState<boolean>(false);
 
-  // console.log("products", productsData);
-  // console.log("searchTerm", searchTerm);
-
   const searchProducts = (term: string) => {
     if (!term) {
       setSearchedProducts(null);
