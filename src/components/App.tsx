@@ -11,6 +11,7 @@ function App() {
   const [searchedProducts, setSearchedProducts] = useState<any>(null);
   const [toggleProductDetails, setToggleProductDetails] =
     useState<boolean>(false);
+  const [selected, setSelected] = useState<any>(null);
 
   const searchProducts = (term: string) => {
     if (!term) {
@@ -25,6 +26,12 @@ function App() {
       return;
     }
     setSearchedProducts(items);
+  };
+
+  const handleOnClickSearchItem = (item: any) => {
+    setSelected(item);
+    setToggleProductDetails(true);
+    // console.log("item::details=>", item);
   };
 
   return (
@@ -54,15 +61,20 @@ function App() {
           {searchedProducts && (
             <Row className="mt-4 mb-5">
               {searchedProducts.map((item: any, index: number) => (
-                <SearchResult item={item} key={index} />
+                <SearchResult
+                  item={item}
+                  key={index}
+                  handleOnClick={handleOnClickSearchItem}
+                  active={selected && selected.productName === item.productName}
+                />
               ))}
             </Row>
           )}
         </Col>
 
-        {searchedProducts && toggleProductDetails && (
+        {searchedProducts && toggleProductDetails && selected && (
           <Col md={4} className="mt-4">
-            <ProductDetails />
+            <ProductDetails item={selected} />
           </Col>
         )}
       </Row>

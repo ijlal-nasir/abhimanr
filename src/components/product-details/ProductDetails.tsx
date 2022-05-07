@@ -12,51 +12,55 @@ import {
 } from "reactstrap";
 import { BlueChip } from "../chip/Chip";
 
-const ProductDetails = () => {
+type Props = {
+  item: any;
+};
+
+const ProductDetails: React.FC<Props> = ({ item }) => {
+  console.log("item::details", item);
+
   return (
     <Card>
       <CardHeader className="bg-white">Product Details</CardHeader>
       <CardBody className="pt-4">
-        <CardSubtitle className="fs-6">Foxit Software</CardSubtitle>
+        <CardSubtitle className="fs-6">{item.productName}</CardSubtitle>
         <div className="mt-2">
-          <BlueChip>Software Development</BlueChip>
-          <BlueChip>Daily Business</BlueChip>
-          <BlueChip>Graphic Editors</BlueChip>
-          <BlueChip>Text Editors</BlueChip>
+          {item.tags.map((tag: string, index: number) => (
+            <BlueChip key={index} classes="mt-2">
+              {tag}
+            </BlueChip>
+          ))}
         </div>
 
-        <Button color="info" className="text-white mt-4">
+        <a
+          href={item.manufacturerUrl}
+          target="_blank"
+          rel="no-referer"
+          color="info"
+          className="btn btn-info text-white mt-4"
+        >
           Go to Manufacturer
-        </Button>
+        </a>
 
-        <p className="mt-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic incidunt
-          assumenda amet commodi? Nesciunt enim iste, eaque doloribus odio
-          veritatis quas totam possimus voluptates tempore quidem, pariatur
-          aspernatur inventore dolores!
-        </p>
+        <p className="mt-4">{item.description}</p>
 
         <FormGroup check>
           <Label check>
-            <Input type="radio" /> Option 1
+            <Input type="radio" name="productOption" /> {item.option1}
           </Label>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos
-            numquam dicta quod eum, ullam sapiente in architecto magnam corrupti
-            nisi dignissimos itaque? Eligendi dignissimos quia nam qui fugit
-            ipsum.
+            numquam dicta quod eum.
           </p>
         </FormGroup>
 
         <FormGroup check>
           <Label check>
-            <Input type="radio" /> Option 2
+            <Input type="radio" name="productOption" /> {item.option2}
           </Label>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eos
-            numquam dicta quod eum, ullam sapiente in architecto magnam corrupti
-            nisi dignissimos itaque? Eligendi dignissimos quia nam qui fugit
-            ipsum.
+            numquam dicta quod eum.
           </p>
         </FormGroup>
       </CardBody>

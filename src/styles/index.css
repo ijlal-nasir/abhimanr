@@ -12,3 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#searchItemCard:hover {
+  border: 1px solid #43c6ff;
+}

@@ -3,13 +3,14 @@ import { Badge } from "reactstrap";
 
 type Props = {
   children: React.ReactNode;
+  classes?: string;
 };
 
-const BlueChip: React.FC<Props> = ({ children }) => {
+const BlueChip: React.FC<Props> = ({ children, classes }) => {
   return (
     <Badge
       color="link"
-      className="me-2"
+      className={`me-2 ${classes}`}
       style={{
         color: "#43c6ff",
         background: "#dbf4ff",
