@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import { Card, CardBody, CardSubtitle, Col } from "reactstrap";
+import { Product } from "../../types/Product.d";
 import { BlueChip } from "../chip/Chip";
 
 type Props = {
-  item: any;
+  item: Product;
   handleOnClick: (x: any) => void;
   active: boolean;
 };
 
 const SearchResult: React.FC<Props> = ({ item, handleOnClick, active }) => {
-  // const [selected, setSelected] = useState<string | null>(null);
-  // const handleItemClick = () => {
-  //   // setSelected(null);
-  //   // setSelected(item.productName !== selected ? item.productName : null);
-  //   // console.log("item::details=>>", item);
-  // };
-
   return (
     <Col
       md={12}
