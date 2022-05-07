@@ -58,7 +58,13 @@ function App() {
       <Row>
         <Col md={6}>
           <Nav tabs>
-            <NavItem className="active">
+            <NavItem
+              className="active"
+              style={{
+                cursor: "pointer",
+                borderBottom: "1px solid rgb(13, 202, 240)",
+              }}
+            >
               <NavLink className="text-info ps-0">1. Product</NavLink>
             </NavItem>
             <NavItem>
